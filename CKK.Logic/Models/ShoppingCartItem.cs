@@ -39,6 +39,11 @@ namespace CKK.Logic.Models
             quantity = argQuantity;
         }
 
+        public decimal GetTotal()
+        {
+            return  quantity ;
+        }
+
 
       
         

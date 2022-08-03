@@ -14,7 +14,7 @@ namespace CKK.Logic.Models
         
 
         //constructor
-        public StoreItem(int argQuantity,Product argProduct)
+        public StoreItem(Product argProduct, int argQuantity)
         {
             quantity = argQuantity;
             product = argProduct;
