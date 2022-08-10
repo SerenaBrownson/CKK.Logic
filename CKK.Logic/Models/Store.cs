@@ -104,7 +104,7 @@ namespace CKK.Logic.Models
             //check for functionality
         }
 
-        public Product FindStoreByItemId(int Id)
+        public Product FindStoreItemById(int Id)
         {
             return Id == product1.GetId() ? product1 : Id == product2.GetId() ? product2 : Id == product3.GetId() ? product3: null;
             //check for functionality
