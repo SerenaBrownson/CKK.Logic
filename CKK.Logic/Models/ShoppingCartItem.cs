@@ -10,6 +10,7 @@ namespace CKK.Logic.Models
     {
         //instance variables
         private Product product;
+
         private int quantity;
 
         //constuctor
@@ -39,9 +40,9 @@ namespace CKK.Logic.Models
             quantity = argQuantity;
         }
 
-        public decimal GetTotal(decimal argPrice) //need to find a way to incorporate the price of item multiplied without error
+        public decimal GetTotal() //need to find a way to incorporate the price of item multiplied without error
         { 
-            return quantity * argPrice; //is this right?
+            return quantity * Product.GetPrice() ; //is this right?
         }
 
 
