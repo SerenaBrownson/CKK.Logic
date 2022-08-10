@@ -38,15 +38,15 @@ namespace CKK.Logic.Models
            // Adds a product to the next available product
             if (product1 == null)
             {
-                prod = product1;
+                 product1 = prod;
             }
             else if (product2 == null)
             {
-                prod = product2;
+                product2 = prod;    
             }
             else if( product3 == null)
             {
-                prod = product3;
+                 product3 = prod;
             }
             //If there is no available product, it will not add a product at all
 
