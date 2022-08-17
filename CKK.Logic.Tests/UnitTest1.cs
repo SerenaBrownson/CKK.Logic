@@ -1,9 +1,8 @@
 using System;
 using Xunit;
-using CKK.Logic.Models;
 
 
-namespace CKK.Logic.Tests
+ namespace CKK.Logic
 {
     public class UnitTest1
     {
@@ -16,7 +15,7 @@ namespace CKK.Logic.Tests
         [Fact]
         public void RemoveProductPassingTest()
         {
-            Assert.Equal(null, RemoveProduct(quantity: 1));
+            Assert.Equal(null , RemoveProduct(quantity: 1));
         }
 
         [Fact]
