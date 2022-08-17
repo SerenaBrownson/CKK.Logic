@@ -87,8 +87,5 @@ namespace CKK.Logic.Models
         }
 
 
-
-
-
     }
 }
