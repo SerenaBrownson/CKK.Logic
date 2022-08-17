@@ -67,7 +67,7 @@ namespace CKK.Logic.Models
 
         public decimal GetTotal() //maybe???
         {
-            return Product1.GetTotal() + Product2.GetTotal() + Product3.GetTotal();
+            return (decimal) Product1.GetTotal() + (decimal)Product2.GetTotal() + (decimal)Product3.GetTotal();
         }
         
         public ShoppingCartItem GetProduct(int prodNum)
