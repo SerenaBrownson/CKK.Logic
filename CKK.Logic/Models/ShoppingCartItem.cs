@@ -40,9 +40,9 @@ namespace CKK.Logic.Models
             quantity = argQuantity;
         }
 
-        public decimal GetTotal() //need to find a way to incorporate the price of item multiplied without error
+        public decimal GetTotal() 
         { 
-            return quantity * product.GetPrice() ; //is this right?
+            return quantity * product.GetPrice() ; 
         }
 
 
