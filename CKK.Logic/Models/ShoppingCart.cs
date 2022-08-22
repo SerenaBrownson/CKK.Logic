@@ -35,11 +35,11 @@ namespace CKK.Logic.Models
         {
             return AddProduct(prod, quantity: 1); 
         }
-        public ShoppingCartItem AddProduct(Product prod, int quantity) //Maybe???
+        public ShoppingCartItem AddProduct(Product prod, int quantity) //not currently working
         {
             if ( quantity >= 1)
             {
-                if (Product1 == null)
+                if (Product1 == null )
                 {
                     return Product1;
                 }
@@ -55,7 +55,7 @@ namespace CKK.Logic.Models
             return null;
         }
          
-        public ShoppingCartItem RemoveProduct(Product prod, int quantity)
+        public ShoppingCartItem RemoveProduct(Product prod, int quantity) // not currently working 
         {
             if (quantity >= 1)
             {
@@ -65,7 +65,7 @@ namespace CKK.Logic.Models
             return null;
         }
 
-        public decimal GetTotal() //maybe???
+        public decimal GetTotal() //not currently working
         {
             return (decimal) Product1.GetTotal() + (decimal)Product2.GetTotal() + (decimal)Product3.GetTotal();
         }
