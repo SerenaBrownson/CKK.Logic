@@ -33,33 +33,64 @@ namespace CKK.Logic.Models
 
         public ShoppingCartItem AddProduct(Product prod)
         {
-            return AddProduct(prod, quantity: 1); 
+            return AddProduct(prod, 1); 
         }
-        public ShoppingCartItem AddProduct(Product prod, int quantity) //not currently working
+        public ShoppingCartItem AddProduct(Product prod, int quantity) //Corrected?
         {
             if ( quantity >= 1)
             {
-                if (Product1 == null )
+                if (Product1 != null && Product1.GetProduct().GetId() == prod.GetId()) //Example from Instruct
                 {
+                    Product1.SetQuantity(Product1.GetQuantity() + quantity);
+                }
+                else if (Product2 != null && Product2.GetProduct().GetId() == prod.GetId()) 
+                {
+                    Product2.SetQuantity(Product2.GetQuantity() + quantity);
+                }
+                else if (Product3 != null && Product3.GetProduct().GetId() == prod.GetId()) 
+                {
+                    Product3.SetQuantity(Product3.GetQuantity() + quantity);
+                }
+
+
+                if (Product1 == null)
+                {
+                    Product1 = new ShoppingCartItem(prod, quantity);
                     return Product1;
                 }
                 else if (Product2 == null)
                 {
+                    Product2 = new ShoppingCartItem(prod, quantity);
                     return Product2;
                 }
                 else if (Product3 == null)
                 {
+                    Product3 = new ShoppingCartItem(prod, quantity);
                     return Product3;
                 }
             }
             return null;
         }
          
-        public ShoppingCartItem RemoveProduct(Product prod, int quantity) // not currently working 
+        public ShoppingCartItem RemoveProduct(Product prod, int quantity) // Passing Now
         {
             if (quantity >= 1)
             {
-                return RemoveProduct(prod, quantity - quantity);
+                if (Product1 != null && Product1.GetProduct().GetId() == prod.GetId()) //Example from Instruct
+                {
+                    Product1.SetQuantity(Product1.GetQuantity() - quantity);
+                    return Product1;
+                }
+                else if (Product2 != null && Product2.GetProduct().GetId() == prod.GetId()) 
+                {
+                    Product2.SetQuantity(Product2.GetQuantity() - quantity);
+                    return Product2;
+                }
+                else if (Product3 != null && Product3.GetProduct().GetId() == prod.GetId())
+                {
+                    Product3.SetQuantity(Product3.GetQuantity() - quantity);
+                    return Product3;
+                }
             }
 
             return null;
@@ -67,7 +98,7 @@ namespace CKK.Logic.Models
 
         public decimal GetTotal() //not currently working
         {
-            return (decimal) Product1.GetTotal() + (decimal)Product2.GetTotal() + (decimal)Product3.GetTotal();
+            return Product1.GetTotal() + Product2.GetTotal() + Product3.GetTotal();
         }
         
         public ShoppingCartItem GetProduct(int prodNum)
