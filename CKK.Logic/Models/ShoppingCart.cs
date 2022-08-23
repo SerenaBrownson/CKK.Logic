@@ -35,9 +35,8 @@ namespace CKK.Logic.Models
         {
             return AddProduct(prod, 1); 
         }
-        public ShoppingCartItem AddProduct(Product prod, int quantity) //Corrected?
-        {
-            if ( quantity >= 1)
+        public ShoppingCartItem AddProduct(Product prod, int quantity) //I think something in here is messing with GetTotal Method.
+        {   if ( quantity >= 1)
             {
                 if (Product1 != null && Product1.GetProduct().GetId() == prod.GetId()) //Example from Instruct
                 {
@@ -51,8 +50,7 @@ namespace CKK.Logic.Models
                 {
                     Product3.SetQuantity(Product3.GetQuantity() + quantity);
                 }
-
-
+                 
                 if (Product1 == null)
                 {
                     Product1 = new ShoppingCartItem(prod, quantity);
@@ -60,12 +58,12 @@ namespace CKK.Logic.Models
                 }
                 else if (Product2 == null)
                 {
-                    Product2 = new ShoppingCartItem(prod, quantity);
+                     Product2 = new ShoppingCartItem(prod, quantity);
                     return Product2;
                 }
                 else if (Product3 == null)
                 {
-                    Product3 = new ShoppingCartItem(prod, quantity);
+                   Product3 = new ShoppingCartItem(prod, quantity);
                     return Product3;
                 }
             }
