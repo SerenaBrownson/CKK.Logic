@@ -57,23 +57,19 @@ namespace CKK.Logic.Models
             if (item != null)
 
             {
-             //make sure there is enough to subtract.
+                int startingQuantity = item.GetQuantity();
              
-                if (true)
+                if (startingQuantity>= quantity)
                 {
-                   
-                  //return  item.GetQuantity - quantity;
-
+                    int endingQuantity = startingQuantity - quantity;
+                    item.SetQuantity(endingQuantity);
+                  return item;
                 }
 
                 else
-
                 {
-
                     products.Remove(item);
-
                     return item;
-
                 }
 
             }
@@ -88,7 +84,6 @@ namespace CKK.Logic.Models
             foreach ( var product in products)
             {
                 shoppingtotal = product.GetProduct().GetPrice() * product.GetQuantity();
-                
             }
             return shoppingtotal; 
             
