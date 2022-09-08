@@ -64,7 +64,13 @@ namespace CKK.Logic.Models
 
         public decimal GetTotal() 
         {
-            
+            var shoppingtotal = 0.0M;
+            foreach ( var product in products)
+            {
+                shoppingtotal = product.GetProduct().GetPrice() * product.GetQuantity();
+                
+            }
+            return shoppingtotal; 
             
         }
         
