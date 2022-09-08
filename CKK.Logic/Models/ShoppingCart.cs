@@ -31,8 +31,7 @@ namespace CKK.Logic.Models
         {
             var item = new Product();
             item.SetId(ID);
-            var find = new ShoppingCartItem(item, 0);
-            products.Add(find); //maybe??
+            var find = new ShoppingCartItem(item, 1);
             products.Contains(find);
             return find;
         }
