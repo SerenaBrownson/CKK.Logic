@@ -27,11 +27,11 @@ namespace CKK.Logic.Models
             return Customer.GetId();
         }
         
-         public ShoppingCartItem GetProductById( int ID) // will be the same at stores 
+         public ShoppingCartItem GetProductById( int ID) 
         {
             var item = new Product();
             item.SetId(ID);
-            var find = new ShoppingCartItem(item, 0);
+            var find = new ShoppingCartItem(item, 1);
             products.Contains(find);
             return find;
         }
@@ -40,8 +40,8 @@ namespace CKK.Logic.Models
         {
             return AddProduct(prod, 1); 
         }
-        public ShoppingCartItem AddProduct(Product prod, int quantity) // should be done 
-        {   if (quantity >= 1) //checks for valid quantity
+        public ShoppingCartItem AddProduct(Product prod, int quantity) 
+        {   if (quantity >= 1) 
             {
                 var item = new ShoppingCartItem(prod, quantity);
                 products.Add(item);
@@ -74,7 +74,7 @@ namespace CKK.Logic.Models
             
         }
         
-        public List<ShoppingCartItem> GetProducts() //List here now 
+        public List<ShoppingCartItem> GetProducts() 
         {
             return products;
         }
