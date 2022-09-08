@@ -32,7 +32,7 @@ namespace CKK.Logic.Models
             var item = new Product();
             item.SetId(ID);
             var find = new ShoppingCartItem(item, 1);
-            products.Contains(find);
+            products.Contains(find );
             return find;
         }
 
@@ -49,18 +49,38 @@ namespace CKK.Logic.Models
             }
             else return null;
         }
-         
-        public ShoppingCartItem RemoveProduct(Product prod, int quantity) 
+
+        public ShoppingCartItem RemoveProduct(int id, int quantity)
         {
-            if (quantity >= 1)
+            var item = products.FirstOrDefault(x => x.GetProduct().GetId() == id);
+
+            if (item != null)
+
             {
-                var item = new ShoppingCartItem(prod, quantity);
-                products.Remove(item);
-                return item;
+             //make sure there is enough to subtract.
+             
+                if (true)
+                {
+                   
+                  //return  item.GetQuantity - quantity;
+
+                }
+
+                else
+
+                {
+
+                    products.Remove(item);
+
+                    return item;
+
+                }
+
             }
 
             return null;
         }
+    
 
         public decimal GetTotal() 
         {
