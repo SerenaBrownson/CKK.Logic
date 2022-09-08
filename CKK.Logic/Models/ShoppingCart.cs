@@ -11,14 +11,15 @@ namespace CKK.Logic.Models
     {
         //initial values
        private Customer Customer;
-       private ShoppingCartItem Product1;
-       private ShoppingCartItem Product2;
-       private ShoppingCartItem Product3;
+       private List<ShoppingCartItem> products;
 
-        //constructor
+       
+
+        //constructor 
         public ShoppingCart(Customer argCust)
         {
            Customer = argCust;
+           products = new List<ShoppingCartItem>();
         }
         //GetIDMethod
         public int GetCustomerId()
@@ -26,104 +27,50 @@ namespace CKK.Logic.Models
             return Customer.GetId();
         }
         
-         public ShoppingCartItem GetProductById( int ID)
+         public ShoppingCartItem GetProductById( int ID) // will be the same at stores 
         {
-            return ID == 1? Product1 : ID == 2? Product2 : ID == 3? Product3 : null;
+            var item = new Product();
+            item.SetId(ID);
+            var find = new ShoppingCartItem(item, 0);
+            products.Contains(find);
+            return find;
         }
 
         public ShoppingCartItem AddProduct(Product prod)
         {
             return AddProduct(prod, 1); 
         }
-        public ShoppingCartItem AddProduct(Product prod, int quantity) //I think something in here is messing with GetTotal Method.
+        public ShoppingCartItem AddProduct(Product prod, int quantity) // should be done 
         {   if (quantity >= 1) //checks for valid quantity
             {
-                if (Product1 != null && Product1.GetProduct().GetId() == prod.GetId()) //Example from Instruct // checks for product 
-                {
-                   Product1.SetQuantity(Product1.GetQuantity() + quantity);// adds quantity if found
-                    
-                    return Product1;  
-                }
-                else if (Product2 != null && Product2.GetProduct().GetId() == prod.GetId())
-                {
-                    Product2.SetQuantity(Product2.GetQuantity() + quantity);
-                   
-                    return Product2;
-                }
-                else if (Product3 != null && Product3.GetProduct().GetId() == prod.GetId())
-                {
-                    Product3.SetQuantity(Product3.GetQuantity() + quantity);
-                    
-                    return Product3;
-                }
-
-                else if (Product1 == null)
-                {
-                    Product1 = new ShoppingCartItem(prod, quantity);
-
-                    return Product1;
-                }
-                else if (Product2 == null)
-                {
-                    Product2 = new ShoppingCartItem(prod, quantity);
-
-                    return Product2;
-                }
-                else if (Product3 == null)
-                {
-                    Product3 = new ShoppingCartItem(prod, quantity);
-
-                    return Product3;
-                }
-                else return null;
+                var item = new ShoppingCartItem(prod, quantity);
+                products.Add(item);
+                return item;
             }
             else return null;
         }
          
-        public ShoppingCartItem RemoveProduct(Product prod, int quantity) // Passing Now
+        public ShoppingCartItem RemoveProduct(Product prod, int quantity) 
         {
             if (quantity >= 1)
             {
-                if (Product1 != null && Product1.GetProduct().GetId() == prod.GetId()) //Example from Instruct
-                {
-                    Product1.SetQuantity(Product1.GetQuantity() - quantity);
-                    return Product1;
-                }
-                else if (Product2 != null && Product2.GetProduct().GetId() == prod.GetId()) 
-                {
-                    Product2.SetQuantity(Product2.GetQuantity() - quantity);
-                    return Product2;
-                }
-                else if (Product3 != null && Product3.GetProduct().GetId() == prod.GetId())
-                {
-                    Product3.SetQuantity(Product3.GetQuantity() - quantity);
-                    return Product3;
-                }
+                var item = new ShoppingCartItem(prod, quantity);
+                products.Remove(item);
+                return item;
             }
 
             return null;
         }
 
-        public decimal GetTotal() //not currently working
+        public decimal GetTotal() 
         {
-            return Product1.GetTotal() + Product2.GetTotal() + Product3.GetTotal();
+            
+            
         }
         
-        public ShoppingCartItem GetProduct(int prodNum)
+        public List<ShoppingCartItem> GetProduct(int prodNum) //List here now 
         {
-            if (prodNum == 1)
-            {
-                return Product1;
-            }
-            else if (prodNum == 2)
-            {
-                return Product2;
-            }
-            else if (prodNum == 3)
-            {
-                return Product3;
-            }
-            else return null;
+            return products;
         }
 
 

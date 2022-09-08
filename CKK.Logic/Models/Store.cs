@@ -10,9 +10,15 @@ namespace CKK.Logic.Models
     {
         private int id;
         private string name;
-        private Product product1;
-        private Product product2;
-        private Product product3;
+        private List<StoreItem> items;
+
+
+
+        public Store()
+        {
+            items = new List<StoreItem>(); //maybe?
+           
+        }
 
         public int GetId()
         {
@@ -32,82 +38,49 @@ namespace CKK.Logic.Models
         {
             name = argName;
         }
-     
-        public void AddStoreItem(Product prod)
+
+        public StoreItem AddStoreItem(Product prod, int quantity)    //Add Return Product as StoreItem && Add Quantity Argument 
         {
-           // Adds a product to the next available product
-            if (product1 == null)
+            // Adds a product to the next available product
+            if (prod == null && quantity >= 1)
             {
-                 product1 = prod;
+                var item = new StoreItem(prod, quantity);
+                items.Add(item);
+                return item;
             }
-            else if (product2 == null)
+            else
             {
-                product2 = prod;    
+                return null;
             }
-            else if( product3 == null)
-            {
-                 product3 = prod;
-            }
-            //If there is no available product, it will not add a product at all
-
-            if (product1 != null && product2 != null && product3 != null )
-            {
-                prod = null;
-            }
-
-            //If there is an item in spot two, but not spot one or three, then it should put the item in spot 1
-            if(product1 != null && product3 != null)
-            {
-                prod = product1;
-            }
-
         }
        
-        public void RemoveStoreItem(int productNum)
+        public StoreItem RemoveStoreItem(int productNum, int quantity)  //Add return type as StoreItem && add quantity argument
         {
-            //Removes a product from  the desired product
+            if (quantity >= 1)
+            {
+                var item = new Product();
+                item.SetId(productNum);
+                var remove = new StoreItem(item, quantity);
+                items.Remove(remove);
+                return remove;
+            }
+            else return null; 
+        }
 
-            if (productNum == 1)
-            {
-                product1 = null;
-            }
-            if(productNum==2)
-            {
-                product2 = null;
-            }
-
-            if (productNum == 3)
-            {
-                product3 = null;
-            }
-
-            //If there are no products, does nothing
-            if(product1 == null && product2 == null && product3 == null)
-            {
-                product1 = null;
-                product2 = null;
-                product3 = null;
-            }
-            //If product is out of range, does nothing
-            if(productNum != 1 || productNum != 2 ||productNum != 3)
-            {
-                //not sure what to put here. can this be left empty?
-            }
-            
+        public List<StoreItem> GetStoreItem() //remove argument and return list
+        {
+            return items;
 
         }
 
-        public Product GetStoreItem(int productNum)
+        public StoreItem FindStoreItemById(int Id) //change retrn type to store item. 
         {
-            return productNum == 1 ? product1 : productNum == 2 ? product2 : productNum == 3 ? product3 : null;
-            //checks for if statements in an return statement, if all false returns null
-            //check for functionality
-        }
+            var item = new Product();
+            item.SetId(Id);
+            var find = new StoreItem(item,0);
+            items.Contains(find);
+            return find;
 
-        public Product FindStoreItemById(int Id)
-        {
-            return Id == product1.GetId() ? product1 : Id == product2.GetId() ? product2 : Id == product3.GetId() ? product3: null;
-            //check for functionality
         }
 
     }
