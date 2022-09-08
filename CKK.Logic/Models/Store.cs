@@ -67,7 +67,7 @@ namespace CKK.Logic.Models
             else return null; 
         }
 
-        public List<StoreItem> GetStoreItem() //remove argument and return list
+        public List<StoreItem> GetStoreItems() //remove argument and return list
         {
             return items;
 
