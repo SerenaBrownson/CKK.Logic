@@ -55,11 +55,10 @@ namespace CKK.Logic.Models
             var item = products.FirstOrDefault(x => x.GetProduct().GetId() == id);
 
             if (item != null)
-
             {
                 int startingQuantity = item.GetQuantity();
              
-                if (startingQuantity>= quantity)
+                if (startingQuantity > quantity)
                 {
                     int endingQuantity = startingQuantity - quantity;
                     item.SetQuantity(endingQuantity);
