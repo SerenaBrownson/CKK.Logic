@@ -40,17 +40,24 @@ namespace CKK.Logic.Models
         {
             return AddProduct(prod, 1); 
         }
-        public ShoppingCartItem AddProduct(Product prod, int quantity) 
-        {   if (quantity >= 1) 
+        public ShoppingCartItem AddProduct(Product prod, int quantity)  // needs more logic 
+        {  
+            if (quantity >= 1) 
             {
                 var item = new ShoppingCartItem(prod, quantity);
-                products.Add(item);
+                if(products.Contains(item))
+                {
+                    item.SetQuantity(quantity + item.GetQuantity()); 
+                }
+                else
+                { products.Add(item); }
+                
                 return item;
             }
             else return null;
         }
 
-        public ShoppingCartItem RemoveProduct(int id, int quantity)
+        public ShoppingCartItem RemoveProduct(int id, int quantity) // not working currently 
         {
             var item = products.FirstOrDefault(x => x.GetProduct().GetId() == id);
 
