@@ -63,7 +63,7 @@ namespace CKK.Logic.Models
        
         public StoreItem RemoveStoreItem(int productNum, int quantity)  //Add return type as StoreItem && add quantity argument
         {
-            var item = items.FirstOrDefault(x => x.GetProduct().GetId() == productNum);
+            var item = FindStoreItemById(productNum); //testing
 
             if (item != null)
             {
