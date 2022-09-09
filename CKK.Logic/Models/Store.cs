@@ -91,13 +91,7 @@ namespace CKK.Logic.Models
 
         public StoreItem FindStoreItemById(int Id) //change retrn type to store item. 
         {
-            var item = new Product();
-            item.SetId(Id);
-            var find = new StoreItem(item,1);
-            if (items.Contains(find))
-            { return find; }
-            else return null;
-
+            return items.FirstOrDefault(x => x.GetProduct().GetId() == Id);
         }
 
     }
