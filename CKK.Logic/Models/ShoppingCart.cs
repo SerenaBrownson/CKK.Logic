@@ -72,16 +72,14 @@ namespace CKK.Logic.Models
                   item.SetQuantity(startingQuantity - quantity);
                   return item;
                 }
-
                 else
                 {
                     products.Remove(item);
-                    return item;
+                    return null;
                 }
-
             }
 
-           else return item;
+           else return null;
         }
     
 
