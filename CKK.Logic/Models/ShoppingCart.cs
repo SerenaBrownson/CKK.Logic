@@ -78,7 +78,7 @@ namespace CKK.Logic.Models
                 else
                 {
                     products.Remove(item);
-                    return null;
+                    return item;
                 }
 
             }
