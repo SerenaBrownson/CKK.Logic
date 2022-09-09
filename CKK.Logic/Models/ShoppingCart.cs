@@ -63,7 +63,7 @@ namespace CKK.Logic.Models
         {
             var item = GetProductById(id);
            
-
+            
             if (item != null)
             {
                 int startingQuantity = item.GetQuantity();
@@ -76,7 +76,7 @@ namespace CKK.Logic.Models
                 else
                 {
                     products.Remove(item);
-                    return null;
+                    return item;
                 }
 
             }
