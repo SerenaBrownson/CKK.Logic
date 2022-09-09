@@ -59,22 +59,21 @@ namespace CKK.Logic.Models
         public ShoppingCartItem RemoveProduct(int id, int quantity) // not working currently 
         {
             var item = GetProductById(id);
+           
 
             if (item != null)
             {
                 int startingQuantity = item.GetQuantity();
-             
                 if (startingQuantity > quantity)
                 {
-                    int endingQuantity = startingQuantity - quantity;
-                    item.SetQuantity(endingQuantity);
+                  item.SetQuantity(startingQuantity - quantity);
                   return item;
                 }
 
                 else
                 {
                     products.Remove(item);
-                    return null;
+                    return item;
                 }
 
             }
