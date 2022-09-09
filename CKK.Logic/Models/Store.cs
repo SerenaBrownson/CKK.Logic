@@ -41,16 +41,19 @@ namespace CKK.Logic.Models
 
         public StoreItem AddStoreItem(Product prod, int quantity)    //Add Return Product as StoreItem && Add Quantity Argument 
         {
-            // Adds a product to the next available product
-            if (prod != null && quantity >= 1)
+            var item = new StoreItem(prod, quantity);
+  
+            if (items.Contains(item))
             {
-                var item = new StoreItem(prod, quantity);
-                items.Add(item);
+                int startingQuantity = item.GetQuantity();
+                item.SetQuantity(quantity + startingQuantity);
+                
                 return item;
             }
             else
             {
-                return null;
+                items.Add(item);
+                return item;
             }
         }
        
