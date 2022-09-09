@@ -55,7 +55,7 @@ namespace CKK.Logic.Models
 
         public ShoppingCartItem RemoveProduct(int id, int quantity) // not working currently 
         {
-            var item = products.FirstOrDefault(x => x.GetProduct().GetId() == id);
+            var item = GetProductById(id);
 
             if (item != null)
             {
