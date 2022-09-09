@@ -77,9 +77,10 @@ namespace CKK.Logic.Models
         {
             var item = new Product();
             item.SetId(Id);
-            var find = new StoreItem(item,0);
-            items.Contains(find);
-            return find;
+            var find = new StoreItem(item,1);
+            if (items.Contains(find))
+            { return find; }
+            else return null;
 
         }
 
