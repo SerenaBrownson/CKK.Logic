@@ -48,7 +48,8 @@ namespace CKK.Logic.Models
             }
             else 
             {
-                products.Add(item);
+                var itemAdd = new ShoppingCartItem(prod, quantity);
+                products.Add(itemAdd);
                 return item;
             }
             
