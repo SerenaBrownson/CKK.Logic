@@ -39,19 +39,22 @@ namespace CKK.Logic.Models
         public ShoppingCartItem AddProduct(Product prod, int quantity)  // needs more logic 
         {
             var item = GetProductById(prod.GetId());
+            if (quantity >= 1)
+            {
+                if (item != null)
+                {
+                    item.SetQuantity(quantity + item.GetQuantity());
 
-            if (item != null) 
-            {
-             item.SetQuantity(quantity + item.GetQuantity()); 
-                
-                return item;
+                    return item;
+                }
+                else
+                {
+                    var itemAdd = new ShoppingCartItem(prod, quantity);
+                    products.Add(itemAdd);
+                    return itemAdd;
+                }
             }
-            else 
-            {
-                var itemAdd = new ShoppingCartItem(prod, quantity);
-                products.Add(itemAdd);
-                return item;
-            }
+            else return null;
             
            
         }
