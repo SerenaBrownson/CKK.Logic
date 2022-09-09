@@ -71,8 +71,8 @@ namespace CKK.Logic.Models
 
                 else
                 {
-                    
-                    return null;
+                    item.SetQuantity(0);
+                    return item;
                 }
 
             }
