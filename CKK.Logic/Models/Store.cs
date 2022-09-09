@@ -42,20 +42,22 @@ namespace CKK.Logic.Models
         public StoreItem AddStoreItem(Product prod, int quantity)    //Add Return Product as StoreItem && Add Quantity Argument 
         {
             var item = FindStoreItemById(prod.GetId()); ///might be causing error 
-
-
-            if (items.Contains(item))
+            if (quantity >= 1)
             {
-                int startingQuantity = item.GetQuantity();
-                item.SetQuantity(quantity + startingQuantity);
-                
-                return item;
+                if (item != null)
+                {
+                    int startingQuantity = item.GetQuantity();
+                    item.SetQuantity(quantity + startingQuantity);
+
+                    return item;
+                }
+                else
+                {
+                    items.Add(item);
+                    return item;
+                }
             }
-            else
-            {
-                items.Add(item);
-                return item;
-            }
+            else return null;
         }
        
         public StoreItem RemoveStoreItem(int productNum, int quantity)  //Add return type as StoreItem && add quantity argument
