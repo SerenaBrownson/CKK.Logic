@@ -74,6 +74,7 @@ namespace CKK.Logic.Models
                 }
                 else
                 {
+                    item.SetQuantity(0);
                     products.Remove(item);
                     return null;
                 }
