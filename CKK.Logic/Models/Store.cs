@@ -46,15 +46,16 @@ namespace CKK.Logic.Models
             {
                 if (item != null)
                 {
-                    int startingQuantity = item.GetQuantity();
-                    item.SetQuantity(quantity + startingQuantity);
+                    
+                    item.SetQuantity(quantity + item.GetQuantity());
 
                     return item;
                 }
                 else
                 {
-                    items.Add(item);
-                    return item;
+                    var newItem = new StoreItem(prod, quantity);
+                    items.Add(newItem);
+                    return newItem;
                 }
             }
             else return null;
