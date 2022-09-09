@@ -29,14 +29,7 @@ namespace CKK.Logic.Models
         
          public ShoppingCartItem GetProductById( int ID) 
         {
-            var item = new Product();
-            item.SetId(ID);
-            var find = new ShoppingCartItem(item, 1);
-            if (products.Contains(find))
-            {
-                return find;
-            }
-            else return null;
+           return products.FirstOrDefault(x => x.GetProduct().GetId() == ID);
         }
 
         public ShoppingCartItem AddProduct(Product prod)
