@@ -41,8 +41,9 @@ namespace CKK.Logic.Models
 
         public StoreItem AddStoreItem(Product prod, int quantity)    //Add Return Product as StoreItem && Add Quantity Argument 
         {
-            var item = new StoreItem(prod, quantity);
-  
+            var item = items.FirstOrDefault(x => x.GetProduct() == prod); ///might be causing error 
+
+
             if (items.Contains(item))
             {
                 int startingQuantity = item.GetQuantity();
