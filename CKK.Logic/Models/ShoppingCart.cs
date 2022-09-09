@@ -67,7 +67,7 @@ namespace CKK.Logic.Models
             if (item != null)
             {
                 int startingQuantity = item.GetQuantity();
-                if (startingQuantity > quantity)
+                if (startingQuantity - quantity > 0)
                 {
                   item.SetQuantity(startingQuantity - quantity);
                   return item;
@@ -76,7 +76,7 @@ namespace CKK.Logic.Models
                 {
                     item.SetQuantity(0);
                     products.Remove(item);
-                    return null;
+                    return item;
                 }
             }
 
