@@ -88,7 +88,7 @@ namespace CKK.Logic.Models
             var shoppingtotal = 0.0M;
             foreach ( var product in products)
             {
-                shoppingtotal = product.GetProduct().GetPrice() * product.GetQuantity();
+                shoppingtotal += product.GetProduct().GetPrice() * product.GetQuantity();
             }
             return shoppingtotal; 
             
