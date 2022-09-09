@@ -38,7 +38,7 @@ namespace CKK.Logic.Models
         }
         public ShoppingCartItem AddProduct(Product prod, int quantity)  // needs more logic 
         {
-            var item = products.FirstOrDefault(x => x.GetProduct() == prod);
+            var item = GetProductById(prod.GetId());
 
             if (item != null) 
             {
