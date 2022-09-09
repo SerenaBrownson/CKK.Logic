@@ -81,7 +81,7 @@ namespace CKK.Logic.Models
 
             }
 
-           else return null;
+           else return item;
         }
     
 
