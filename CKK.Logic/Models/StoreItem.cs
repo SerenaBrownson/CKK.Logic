@@ -8,11 +8,9 @@ using CKK.Logic.Interfaces;
 
 namespace CKK.Logic.Models
 {
-    public class StoreItem
+    public class StoreItem : InventoryItem
     {
-        //private instance variables
-        private int quantity;
-        private Product product;
+        
         
 
         //constructor
