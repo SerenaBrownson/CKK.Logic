@@ -7,11 +7,11 @@ using CKK.Logic.Interfaces;
 
 namespace CKK.Logic.Models
 {
-    public class Product
+    public class Product : Entity
     {
         //instance variables
-        private int id;
-        private string name;
+        
+        
         private decimal price;
 
         //Methods for Id

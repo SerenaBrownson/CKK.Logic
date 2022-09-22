@@ -8,17 +8,17 @@ using CKK.Logic.Interfaces;
 
 namespace CKK.Logic.Models
 {
-    public class Customer
+    public class Customer : Entity
     {
         //private instance variables
-        private int id;
-        private string name;
+        
+        
         private string address;
      
         //Methods for Id
         public int GetId()
         {
-            return id;
+            return base.id;
         }
         public void SetId(int argId)
         {

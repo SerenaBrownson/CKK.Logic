@@ -9,8 +9,8 @@ namespace CKK.Logic.Models
 {
     public class Store : Entity
     {
-        private int id;
-        private string name;
+        
+       
         private List<StoreItem> items;
 
 
