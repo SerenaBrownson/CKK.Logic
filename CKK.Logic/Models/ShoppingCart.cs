@@ -11,17 +11,32 @@ namespace CKK.Logic.Models
     public class ShoppingCart
     {
         //initial values
-       private Customer Customer;
-       private List<ShoppingCartItem> products;
+        private Customer Customer;
+        private List<ShoppingCartItem> products;
 
-       
+
 
         //constructor 
         public ShoppingCart(Customer argCust)
         {
-           Customer = argCust;
-           products = new List<ShoppingCartItem>();
+            Customer = argCust;
+            products = new List<ShoppingCartItem>();
         }
+
+
+        public Customer customer
+        {
+            get; set;
+        }
+
+        public Product Products
+        {
+            get; set;
+        }
+
+
+
+
         //GetIDMethod
         public int GetCustomerId()
         {

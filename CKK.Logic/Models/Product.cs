@@ -44,6 +44,12 @@ namespace CKK.Logic.Models
             price = argPrice;
         }
 
+        public decimal Price
+        {
+            get; set;
+        }
+        
+
     }
    
 

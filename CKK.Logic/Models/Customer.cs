@@ -33,14 +33,10 @@ namespace CKK.Logic.Models
         {
             name=argName;
         }
-        //Methods for Address
-        public string GetAddress()
+        
+        public string Address
         {
-            return address;
-        }
-        public void SetAddress(string argAddress)
-        {
-            address=argAddress;
+            get;set;
         }
         
 
