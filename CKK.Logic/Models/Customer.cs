@@ -18,7 +18,7 @@ namespace CKK.Logic.Models
         //Methods for Id
         public int GetId()
         {
-            return base.id;
+            return id;
         }
         public void SetId(int argId)
         {
