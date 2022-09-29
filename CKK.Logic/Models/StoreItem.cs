@@ -16,28 +16,28 @@ namespace CKK.Logic.Models
         //constructor
         public StoreItem(Product argProduct, int argQuantity)
         {
-            quantity = argQuantity;
-            product = argProduct;
+            Quantity = argQuantity;
+            Product = argProduct;
         }
         
         //methods for quantity
         public int GetQuantity()
         {
-            return quantity;
+            return Quantity;
         }
         public void SetQuantity(int argQuantity)
         {
-            quantity = argQuantity;
+            Quantity = argQuantity;
         }
         
         //method for product
         public Product GetProduct()
         {
-            return product;
+            return Product;
         }
         public void SetProduct(Product argProduct)
         {
-            product = argProduct;
+            Product = argProduct;
         }
 
     }

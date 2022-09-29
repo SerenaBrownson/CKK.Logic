@@ -13,34 +13,34 @@ namespace CKK.Logic.Models
 
         //constuctor
         public ShoppingCartItem(Product argProduct, int argQuantity)
-        { 
-            product = argProduct;
-            quantity = argQuantity;
+        {
+            Product = argProduct;
+            Quantity = argQuantity;
         }
         
         //methods for product
         public Product GetProduct()
         {
-            return product;
+            return Product;
         }
         public void SetProduct(Product argProduct)
         {
-            product = argProduct;
+            Product = argProduct;
         }
 
         //methods for quantity
         public int GetQuantity()
         {
-            return quantity;
+            return Quantity;
         }
         public void SetQuantity(int argQuantity)
         {
-            quantity = argQuantity;
+            Quantity = argQuantity;
         }
 
         public decimal GetTotal() 
         { 
-            return quantity * product.GetPrice() ; 
+            return Quantity * Product.GetPrice() ; 
         }
 
 
