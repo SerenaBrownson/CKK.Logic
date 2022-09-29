@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using CKK.Logic.Interfaces;
+using CKK.Logic.Exceptions;
 
 namespace CKK.Logic.Models
 {
@@ -46,7 +47,11 @@ namespace CKK.Logic.Models
 
         public decimal Price
         {
-            get; set;
+            get { return price; }
+            set{ if (value < 0)
+                { throw new ArgumentOutOfRangeException(); }
+                else price = value;
+            }
         }
         
 
