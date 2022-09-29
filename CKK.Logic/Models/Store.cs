@@ -48,7 +48,7 @@ namespace CKK.Logic.Models
             {
                 if (item != null)
                 {
-                    
+
                     item.SetQuantity(quantity + item.GetQuantity());
 
                     return item;
@@ -60,14 +60,19 @@ namespace CKK.Logic.Models
                     return newItem;
                 }
             }
-            else return null;
+            else 
+            {
+                throw new InventoryItemStockTooLowException("Quantity given is less than or equal to 0, inventory item stock too low");
+            };
         }
        
-        public StoreItem RemoveStoreItem(int productNum, int quantity)  //Add return type as StoreItem && add quantity argument
+        public StoreItem RemoveStoreItem(int productNum, int quantity)  
         {
-            var item = FindStoreItemById(productNum); //testing
+            var item = FindStoreItemById(productNum);
 
-            if (item != null)
+            if (quantity < 0) { throw new ArgumentOutOfRangeException(); }
+
+            else if (item != null)
             {
                 int startingQuantity = item.GetQuantity();
 
@@ -86,18 +91,22 @@ namespace CKK.Logic.Models
 
             }
 
-            else return null;
+            else 
+            {
+                throw new ProductDoesNotExistException("Product does not exist");
+            }
         }
 
-        public List<StoreItem> GetStoreItems() //remove argument and return list
+        public List<StoreItem> GetStoreItems() 
         {
             return items;
 
         }
 
-        public StoreItem FindStoreItemById(int Id) //change retrn type to store item. 
+        public StoreItem FindStoreItemById(int Id) 
         {
-            return items.FirstOrDefault(x => x.GetProduct().GetId() == Id);
+            if (Id < 0) { throw new InvalidIdException("Invalid Id"); }
+            else { return items.FirstOrDefault(x => x.GetProduct().GetId() == Id); }
         }
 
     }

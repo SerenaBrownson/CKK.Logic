@@ -45,15 +45,18 @@ namespace CKK.Logic.Models
         }
         
          public ShoppingCartItem GetProductById( int ID) 
-        {
-           return products.FirstOrDefault(x => x.GetProduct().GetId() == ID);
+        { if (ID < 0) { throw new InvalidIdException("Invalid ID"); }
+            else 
+            {
+                return products.FirstOrDefault(x => x.GetProduct().GetId() == ID);
+            }
         }
 
         public ShoppingCartItem AddProduct(Product prod)
         {
             return AddProduct(prod, 1); 
         }
-        public ShoppingCartItem AddProduct(Product prod, int quantity)  // needs more logic 
+        public ShoppingCartItem AddProduct(Product prod, int quantity) 
         {
             var item = GetProductById(prod.GetId());
             if (quantity >= 1)
@@ -71,23 +74,26 @@ namespace CKK.Logic.Models
                     return itemAdd;
                 }
             }
-            else return null;
+            else { throw new InventoryItemStockTooLowException("Quantity is less than or equal to 0, Inventory Item Stock Too Low"); }
             
            
         }
 
-        public ShoppingCartItem RemoveProduct(int id, int quantity) // not working currently 
+        public ShoppingCartItem RemoveProduct(int id, int quantity) 
         {
             var item = GetProductById(id);
-           
-            
-            if (item != null)
+
+            if (quantity > 0)
+            {
+                throw new ArgumentOutOfRangeException();
+            }
+            else if (item != null)
             {
                 int startingQuantity = item.GetQuantity();
                 if (startingQuantity - quantity > 0)
                 {
-                  item.SetQuantity(startingQuantity - quantity);
-                  return item;
+                    item.SetQuantity(startingQuantity - quantity);
+                    return item;
                 }
                 else
                 {
@@ -97,7 +103,10 @@ namespace CKK.Logic.Models
                 }
             }
 
-           else return null;
+            else 
+            {
+                throw new ProductDoesNotExistException("Product Does not Exist");
+            }
         }
     
 
