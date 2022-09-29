@@ -11,7 +11,8 @@ namespace CKK.Logic.Interfaces
 {
    public abstract class Entity
     {
-        public int id
+        
+       public int id
         {
             get { return id; }
             set
@@ -24,7 +25,7 @@ namespace CKK.Logic.Interfaces
                 
             }
         }
-        public string name { get; set; }
+     public string name { get; set; }
 
     }
 }
