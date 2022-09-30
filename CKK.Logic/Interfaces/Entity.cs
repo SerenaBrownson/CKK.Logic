@@ -11,17 +11,17 @@ namespace CKK.Logic.Interfaces
 {
    public abstract class Entity
     {
-        
+        private int id;
        public int Id
         {
-            get { return Id; }
+            get { return id; }
             set
             { 
                 if (value < 0)
                 {
                    throw new InvalidIdException("Error Invalid Id Exception");
                 }
-                else { Id = value; }
+                else { id = value; }
                 
             }
         }
