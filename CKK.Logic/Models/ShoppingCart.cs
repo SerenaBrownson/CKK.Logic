@@ -83,7 +83,7 @@ namespace CKK.Logic.Models
         {
             var item = GetProductById(id);
 
-            if (quantity > 0)
+            if (quantity < 0)
             {
                 throw new ArgumentOutOfRangeException();
             }
