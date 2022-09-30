@@ -58,9 +58,10 @@ namespace CKK.Logic.Models
         }
         public ShoppingCartItem AddProduct(Product prod, int quantity) 
         {
-            var item = GetProductById(prod.GetId());
+           
             if (quantity >= 1)
             {
+                var item = GetProductById(prod.GetId());
                 if (item != null)
                 {
                     item.SetQuantity(quantity + item.GetQuantity());
