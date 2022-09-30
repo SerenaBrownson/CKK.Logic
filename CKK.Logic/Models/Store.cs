@@ -70,7 +70,7 @@ namespace CKK.Logic.Models
         {
             var item = FindStoreItemById(productNum);
 
-            if (quantity < 0) { throw new ArgumentOutOfRangeException(); }
+            if (quantity <= 0) { throw new ArgumentOutOfRangeException(); }
 
             else if (item != null)
             {
@@ -91,7 +91,7 @@ namespace CKK.Logic.Models
 
             }
 
-            else 
+            else
             {
                 throw new ProductDoesNotExistException("Product does not exist");
             }
