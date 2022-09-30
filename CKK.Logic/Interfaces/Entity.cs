@@ -12,20 +12,20 @@ namespace CKK.Logic.Interfaces
    public abstract class Entity
     {
         
-       public int id
+       public int Id
         {
-            get { return id; }
+            get { return Id; }
             set
             { 
                 if (value < 0)
                 {
                    throw new InvalidIdException("Error Invalid Id Exception");
                 }
-                else { id = value; }
+                else { Id = value; }
                 
             }
         }
-     public string name { get; set; }
+     public string Name { get; set; }
 
     }
 }

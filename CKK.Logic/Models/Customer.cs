@@ -18,20 +18,20 @@ namespace CKK.Logic.Models
         //Methods for Id
         public int GetId()
         {
-            return id;
+            return Id;
         }
         public void SetId(int argId)
         {
-            id=argId;
+            Id = argId;
         }
         //Methods for Name;
         public string GetName()
         {
-            return name;
+            return Name;
         }
         public void SetName(string argName)
         {
-            name=argName;
+            Name = argName;
         }
         
         public string Address

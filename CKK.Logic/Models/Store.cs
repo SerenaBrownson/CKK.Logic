@@ -24,21 +24,21 @@ namespace CKK.Logic.Models
 
         public int GetId()
         {
-            return id;
+            return Id;
         }
 
         public void SetId(int argId)
         {
-            id = argId;
+            Id = argId;
         }
 
         public string GetName()
         {
-            return name;
+            return Name;
         }
         public void SetName(string argName)
         {
-            name = argName;
+            Name = argName;
         }
 
         public StoreItem AddStoreItem(Product prod, int quantity)    //Add Return Product as StoreItem && Add Quantity Argument 
